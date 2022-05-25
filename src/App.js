@@ -1,19 +1,16 @@
-const labelText = 'First name:';
-const style =  {backgroundColor:'blue',
-color:'white'};
+import {BrowserRouter} from 'react-router-dom';
+import AppHeader from './components/AppHeader';
+import AppFooter from './components/AppFooter';
+import MainRouter from './MainRouter';
 
 
 const App = () => {
     return (
-        <div>
-            <div>
-                <label className='label' htmlFor='name'>{labelText}</label>
-                <input id='name' />
-                <button style={style}>
-                    Submit
-                    </button>
-            </div>
-        </div>
+        <BrowserRouter>
+            <AppHeader />
+           <MainRouter />
+             <AppFooter />
+        </BrowserRouter>
     );
 }
 
