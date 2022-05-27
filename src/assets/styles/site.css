@@ -21,3 +21,8 @@ float: left;
     text-align: center;
     margin: auto;
 }
+
+.input-form {
+    width: 50%;
+    margin: 24px auto;
+}
