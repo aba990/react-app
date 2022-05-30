@@ -12,10 +12,10 @@ const styles = {
 
 const Home = () => {
     return (
-<div className='container'>
-    <img src={logo} alt='Logo' style={styles.image} />
-    <div style={styles.title}>Welcome to my First React App</div>
-</div>
+        <div className='container'>
+            <img src={logo} alt='Logo' style={styles.image} />
+            <div style={styles.title}>Welcome to my First React App</div>
+        </div>
     );
 }
 

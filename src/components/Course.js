@@ -18,14 +18,10 @@ const Course = ({ match, history }) => {
         }
     }, [id]);
 
-    function changeHandler(e) {
-        const { name, value } = e.target;
-        setCourse({
-            ...course,
-            [name]: value
-        });
+    const changeHandler = e => {
+        const{name, value} = e.target;
+        setCourse({...course,[name]:value})
     }
-
 
 const back = () => {
     history.push('/courses');

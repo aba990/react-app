@@ -1,5 +1,5 @@
 import AppFooter from './AppFooter';
-import AppHeader from './AppFooter';
+import AppHeader from './AppHeader';
 import Courses from './Courses';
 import Course from './Course';
 import Home from './Home';

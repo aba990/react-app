@@ -12,7 +12,7 @@ const Courses = () => {
         })
     }, []);
 
-
+ 
     return (
         <div className='container'>
             <h1>Courses</h1>
@@ -28,11 +28,11 @@ const Courses = () => {
                     {courses.map(c => (
                         <tr key={c._id}>
                             <td>{c.name}</td>
-                            <td>{c.points}</td> 
+                            <td>{c.points}</td>
                             <td>
                                 <Link to={`/courses/${c._id}`}>Edit</Link>
-                            </td>    
-                        
+                            </td>
+
                         </tr>
                     ))}
                 </tbody>
