@@ -33,12 +33,12 @@ const read = (path, id, callback) => {
 }
 
 const update = (path, id, data, callback) => {
-    axios.put(`${apiUrl}/${path}/${id}`, data, {headers})
-    .then(response => callback(response.data))
-    .catch(reason => {
-        console.log(reason);
-        callback(false);
-    })
+    axios.put(`${apiUrl}/${path}/${id}`, data, { headers })
+        .then(response => callback(response.data))
+        .catch(reason => {
+            console.log(reason);
+            callback(false);
+        })
 }
 
 const remove = (path, id, callback) => {

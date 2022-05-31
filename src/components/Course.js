@@ -18,67 +18,70 @@ const Course = ({ match, history }) => {
         }
     }, [id]);
 
-    const changeHandler = e => {
-        const{name, value} = e.target;
-        setCourse({...course,[name]:value})
+    function changeHandler(e) {
+        const { name, value } = e.target;
+        setCourse({
+            ...course,
+            [name]: value
+        });
     }
 
-const back = () => {
-    history.push('/courses');
-}
-
-const save = () => {
-    if (id === '0') {
-        insert('courses', course, data => {
-            if (data) return history.push('/courses');
-            console.log('There was error during save data');
-        })
-    } else {
-        update('courses', id, course, data => {
-            if (data) return history.push('/courses');
-            console.log('There was error during save data');
-        })
-    }
-}
-
-const del = () => {
-    remove('courses', id, data => {
+    const back = () => {
         history.push('/courses');
-    })
-}
+    }
+
+    const save = () => {
+        if (id === '0') {
+            insert('courses', course, data => {
+                if (data) return history.push('/courses');
+                console.log('There was error during save data');
+            })
+        } else {
+            update('courses', id, course, data => {
+                if (data) return history.push('/courses');
+                console.log('There was error during save data');
+            })
+        }
+    }
+
+    const del = () => {
+        remove('courses', id, data => {
+            history.push('/courses');
+        })
+    }
 
 
-return (<div className='container'>
-    <h2>Course</h2>
-    <form className='input-form'>
-        <div style={{ margin: '12px 0' }}>
-            <label htmlFor='name'>Course name: </label>
-            <input type='text'
-                name='name'
-                value={course.name}
-                onChange={changeHandler} />
-        </div>
-        <div style={{ margin: '12px 0' }}>
-            <label htmlFor='points'>Course points: </label>
-            <input type='text'
-                name='points'
-                value={course.points}
-                onChange={changeHandler} />
-        </div>
-        <hr />
-        {id !== '0' && (
-            <div className='left'>
-                <button type='button' onClick={del}>DELETE</button>
+    return (<div className='container'>
+        <h2>Course</h2>
+        <form className='input-form'>
+            <div style={{ margin: '12px 0' }}>
+                <label htmlFor='name'>Course name: </label>
+                <input type='text'
+                    name='name'
+                    value={course.name}
+                    onChange={changeHandler} />
             </div>
-        )}
-        <div className='right'>
-            <button type='button' onClick={back}>BACK</button>
-            &nbsp;&nbsp;
-            <button type='button' onClick={save}>SAVE</button>
-        </div>
-    </form>
-</div>
-);
+            <div style={{ margin: '12px 0' }}>
+                <label htmlFor='points'>Course points: </label>
+                <input type='text'
+                    name='points'
+                    value={course.points}
+                    onChange={changeHandler} />
+            </div>
+            <hr />
+            {id !== '0' && (
+                <div className='left'>
+                    <button type='button' onClick={del}>DELETE</button>
+                </div>
+            )}
+            <div className='right'>
+                <button type='button' onClick={back}>BACK</button>
+                &nbsp;&nbsp;
+                <button type='button' onClick={save}>SAVE</button>
+            </div>
+        </form>
+    </div>
+    );
 }
 
 
